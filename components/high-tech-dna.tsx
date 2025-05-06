@@ -262,6 +262,7 @@ export function HighTechDNA() {
         ctx.beginPath()
         ctx.moveTo(x, y1)
         ctx.lineTo(x, y2)
+        ctx.strokeStyle = "#20D0FF"
         ctx.stroke()
       }
 

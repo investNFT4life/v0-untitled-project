@@ -1,8 +1,6 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
 import {
   Dialog,
   DialogContent,
@@ -11,97 +9,105 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface PrivacyDialogProps {
   trigger: React.ReactNode
-  title?: string
 }
 
-export function PrivacyDialog({ trigger, title = "Privacy Policy" }: PrivacyDialogProps) {
-  const [open, setOpen] = useState(false)
-
+export function PrivacyDialog({ trigger }: PrivacyDialogProps) {
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="sm:max-w-[650px] max-h-[80vh] bg-[#121212] border border-[#00BFFF]/20 text-white">
+      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-[#121212] text-white border border-[#00BFFF]/20">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-[#00BFFF]">{title}</DialogTitle>
-          <DialogDescription className="text-gray-400 text-sm">myNFT4.life Privacy Policy</DialogDescription>
+          <DialogTitle className="text-2xl text-[#00BFFF]">Privacy Policy</DialogTitle>
+          <DialogDescription className="text-white">
+            This Privacy Policy describes how we collect, use, and share your personal information.
+          </DialogDescription>
         </DialogHeader>
-        <ScrollArea className="mt-4 max-h-[60vh] pr-4">
-          <div className="space-y-4 text-sm">
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">1. Information We Collect</h3>
-              <p className="text-gray-300 text-sm">We collect only essential information:</p>
-              <ul className="list-disc ml-5 text-gray-300 text-sm space-y-1 mt-2">
-                <li>Name and email address for all NFT purchases</li>
-                <li>Shipping address (for Black Edition NFT holders only)</li>
-                <li>Wallet address (if applicable)</li>
-                <li>Transaction data related to your NFT purchase</li>
-              </ul>
-            </section>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">2. How We Use Your Information</h3>
-              <p className="text-gray-300 text-sm">Your information is used exclusively for:</p>
-              <ul className="list-disc ml-5 text-gray-300 text-sm space-y-1 mt-2">
-                <li>Processing your NFT purchase</li>
-                <li>Delivering your digital assets</li>
-                <li>Shipping physical items (Black Edition only)</li>
-                <li>Providing updates about the myNFT4.life mission and impact</li>
-                <li>Communicating important information about your NFT</li>
-              </ul>
-            </section>
+        <div className="mt-4 space-y-4">
+          <h3 className="text-lg font-semibold text-[#00BFFF]">1. Information We Collect</h3>
+          <p>We collect several types of information from and about users of our website, including:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              Personal identifiers such as name, email address, wallet address, and payment information when you
+              purchase an NFT or contact us.
+            </li>
+            <li>
+              Usage data such as IP address, browser type, operating system, and pages visited when you interact with
+              our website.
+            </li>
+            <li>
+              Transaction data including records of NFTs you've purchased, sold, or transferred through our platform.
+            </li>
+          </ul>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">3. Data Security</h3>
-              <p className="text-gray-300 text-sm">
-                We implement industry-standard security measures to protect your personal information. Your data is
-                stored securely and is never sold or shared with third parties except as required to fulfill our
-                services (such as shipping partners for Black Edition NFTs).
-              </p>
-            </section>
+          <h3 className="text-lg font-semibold text-[#00BFFF]">2. How We Use Your Information</h3>
+          <p>We use the information we collect to:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Process transactions and deliver NFTs you've purchased.</li>
+            <li>Communicate with you about your purchases, our services, and updates to our policies.</li>
+            <li>Improve our website and services.</li>
+            <li>Comply with legal obligations.</li>
+            <li>Prevent fraud and enforce our terms of service.</li>
+          </ul>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">4. Your Rights</h3>
-              <p className="text-gray-300 text-sm">You have the right to:</p>
-              <ul className="list-disc ml-5 text-gray-300 text-sm space-y-1 mt-2">
-                <li>Access the personal data we hold about you</li>
-                <li>Request correction of inaccurate information</li>
-                <li>Request deletion of your data (where applicable)</li>
-                <li>Opt out of marketing communications</li>
-              </ul>
-              <p className="text-gray-300 text-sm mt-2">
-                To exercise these rights, please contact us at invest.m21@proton.me.
-              </p>
-            </section>
+          <h3 className="text-lg font-semibold text-[#00BFFF]">3. Information Sharing</h3>
+          <p>We may share your personal information with:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Service providers who help us operate our business and website.</li>
+            <li>
+              Legal authorities when required by law or to protect our rights, privacy, safety, or property, or that of
+              our users or others.
+            </li>
+            <li>
+              Business partners in connection with blockchain transactions necessary to complete NFT purchases and
+              transfers.
+            </li>
+          </ul>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">5. Cookies and Tracking</h3>
-              <p className="text-gray-300 text-sm">
-                Our website uses essential cookies to ensure basic functionality. We may use analytics tools to improve
-                our service, but these are configured to respect your privacy.
-              </p>
-            </section>
+          <h3 className="text-lg font-semibold text-[#00BFFF]">4. Blockchain Transactions</h3>
+          <p>
+            Please be aware that blockchain transactions are public. When you purchase an NFT, information about the
+            transaction, including your wallet address, will be recorded on the blockchain and visible to the public.
+          </p>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">6. Changes to This Policy</h3>
-              <p className="text-gray-300 text-sm">
-                We may update this Privacy Policy from time to time. Any changes will be posted on this page with an
-                updated effective date.
-              </p>
-            </section>
+          <h3 className="text-lg font-semibold text-[#00BFFF]">5. Your Rights</h3>
+          <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>The right to access the personal information we hold about you.</li>
+            <li>The right to request correction or deletion of your personal information.</li>
+            <li>The right to restrict or object to our processing of your personal information.</li>
+            <li>The right to data portability.</li>
+          </ul>
 
-            <section>
-              <h3 className="text-base font-semibold mb-2 text-[#00BFFF]">7. Contact Us</h3>
-              <p className="text-gray-300 text-sm">
-                If you have any questions about this Privacy Policy or how we handle your information, please contact us
-                at invest.m21@proton.me.
-              </p>
-            </section>
+          <h3 className="text-lg font-semibold text-[#00BFFF]">6. Data Security</h3>
+          <p>
+            We implement appropriate technical and organizational measures to protect your personal information.
+            However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot
+            guarantee absolute security.
+          </p>
+
+          <h3 className="text-lg font-semibold text-[#00BFFF]">7. Changes to This Privacy Policy</h3>
+          <p>
+            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new
+            Privacy Policy on this page and updating the "Last updated" date.
+          </p>
+
+          <h3 className="text-lg font-semibold text-[#00BFFF]">8. Contact Us</h3>
+          <p>
+            If you have any questions about this Privacy Policy, please contact us at{" "}
+            <a href="mailto:invest.m21@proton.me" className="text-[#00BFFF] hover:underline">
+              invest.m21@proton.me
+            </a>
+            .
+          </p>
+
+          <div className="pt-4">
+            <p className="text-sm text-gray-400">Last updated: May 7, 2025</p>
           </div>
-        </ScrollArea>
+        </div>
       </DialogContent>
     </Dialog>
   )
