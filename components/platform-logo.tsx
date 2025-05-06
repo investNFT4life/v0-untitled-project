@@ -1,0 +1,7 @@
+export default function PlatformLogo({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L2 19.8H22L12 2Z" />
+    </svg>
+  )
+}
