@@ -29,7 +29,7 @@ export function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black bg-opacity-80 backdrop-blur-md py-3 shadow-lg shadow-cyan-500/20"
+            ? "bg-black bg-opacity-80 backdrop-blur-md py-3 shadow-lg shadow-[#00BFFF]/10"
             : "bg-transparent py-6"
         }`}
       >
@@ -40,21 +40,17 @@ export function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-white hover:text-pink-400 transition-colors relative group">
+              <Link href="/" className="text-white hover:text-[#00BFFF] transition-colors relative group">
                 Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="#nfts" className="text-white hover:text-pink-400 transition-colors relative group">
+              <Link href="#nfts" className="text-white hover:text-[#00BFFF] transition-colors relative group">
                 NFTs
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/impact" className="text-white hover:text-pink-400 transition-colors relative group">
-                Impact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link href="/contact" className="text-white hover:text-pink-400 transition-colors relative group">
+              <Link href="/contact" className="text-white hover:text-[#00BFFF] transition-colors relative group">
                 Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-cyan-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <LanguageSelector />
             </nav>
@@ -80,7 +76,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-lg z-50 md:hidden"
+            className="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-50 md:hidden"
           >
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center p-6">
@@ -94,28 +90,21 @@ export function Header() {
               <nav className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
                 <Link
                   href="/"
-                  className="text-white hover:text-pink-400 transition-colors"
+                  className="text-white hover:text-[#00BFFF] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="#nfts"
-                  className="text-white hover:text-pink-400 transition-colors"
+                  className="text-white hover:text-[#00BFFF] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   NFTs
                 </Link>
                 <Link
-                  href="/impact"
-                  className="text-white hover:text-pink-400 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Impact
-                </Link>
-                <Link
                   href="/contact"
-                  className="text-white hover:text-pink-400 transition-colors"
+                  className="text-white hover:text-[#00BFFF] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact

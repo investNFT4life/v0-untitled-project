@@ -89,13 +89,13 @@ export function SiteLogo({ className }: { className?: string }) {
         >
           <defs>
             <linearGradient id="heartFillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00ffcc" />
-              <stop offset="50%" stopColor="#4158D0" />
-              <stop offset="100%" stopColor="#8A2BE2" />
+              <stop offset="0%" stopColor="#00BFFF" />
+              <stop offset="50%" stopColor="#20D0FF" />
+              <stop offset="100%" stopColor="#40E0FF" />
             </linearGradient>
             <linearGradient id="heartStrokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00ffcc" />
-              <stop offset="100%" stopColor="#8A2BE2" />
+              <stop offset="0%" stopColor="#00BFFF" />
+              <stop offset="100%" stopColor="#40E0FF" />
             </linearGradient>
             <filter id="heartGlow">
               <feGaussianBlur stdDeviation="3" result="blur" />
@@ -129,7 +129,7 @@ export function SiteLogo({ className }: { className?: string }) {
             <path
               d="M30,30 L70,30 L70,70 L30,70 Z"
               fill="none"
-              stroke="#00ffcc"
+              stroke="#00BFFF"
               strokeWidth="0.5"
               strokeDasharray="1 2"
               opacity="0.6"
@@ -138,26 +138,26 @@ export function SiteLogo({ className }: { className?: string }) {
             <path
               d="M40,20 L60,20 L60,80 L40,80 Z"
               fill="none"
-              stroke="#4158D0"
+              stroke="#20D0FF"
               strokeWidth="0.5"
               strokeDasharray="1 2"
               opacity="0.6"
             />
 
             {/* Lignes horizontales */}
-            <line x1="20" y1="40" x2="80" y2="40" stroke="#00ffcc" strokeWidth="0.5" strokeDasharray="1 2" />
-            <line x1="20" y1="60" x2="80" y2="60" stroke="#8A2BE2" strokeWidth="0.5" strokeDasharray="1 2" />
+            <line x1="20" y1="40" x2="80" y2="40" stroke="#00BFFF" strokeWidth="0.5" strokeDasharray="1 2" />
+            <line x1="20" y1="60" x2="80" y2="60" stroke="#40E0FF" strokeWidth="0.5" strokeDasharray="1 2" />
 
             {/* Lignes verticales */}
-            <line x1="35" y1="20" x2="35" y2="80" stroke="#4158D0" strokeWidth="0.5" strokeDasharray="1 2" />
-            <line x1="50" y1="20" x2="50" y2="80" stroke="#00ffcc" strokeWidth="0.5" strokeDasharray="1 2" />
-            <line x1="65" y1="20" x2="65" y2="80" stroke="#8A2BE2" strokeWidth="0.5" strokeDasharray="1 2" />
+            <line x1="35" y1="20" x2="35" y2="80" stroke="#20D0FF" strokeWidth="0.5" strokeDasharray="1 2" />
+            <line x1="50" y1="20" x2="50" y2="80" stroke="#00BFFF" strokeWidth="0.5" strokeDasharray="1 2" />
+            <line x1="65" y1="20" x2="65" y2="80" stroke="#40E0FF" strokeWidth="0.5" strokeDasharray="1 2" />
 
             {/* Points de connexion */}
-            <circle cx="35" cy="40" r="2" fill="#00ffcc" />
-            <circle cx="50" cy="60" r="2" fill="#4158D0" />
-            <circle cx="65" cy="40" r="2" fill="#8A2BE2" />
-            <circle cx="50" cy="30" r="2" fill="#00ffcc" />
+            <circle cx="35" cy="40" r="2" fill="#00BFFF" />
+            <circle cx="50" cy="60" r="2" fill="#20D0FF" />
+            <circle cx="65" cy="40" r="2" fill="#40E0FF" />
+            <circle cx="50" cy="30" r="2" fill="#00BFFF" />
 
             {/* Ligne de battement cardiaque */}
             <polyline
@@ -175,51 +175,51 @@ export function SiteLogo({ className }: { className?: string }) {
             cx="25"
             cy="35"
             r={beatPhase === 2 ? "2.5" : "1.5"}
-            fill="#00ffcc"
+            fill="#00BFFF"
             className="transition-all duration-150"
           />
           <circle
             cx="75"
             cy="35"
             r={beatPhase === 2 ? "2.5" : "1.5"}
-            fill="#8A2BE2"
+            fill="#40E0FF"
             className="transition-all duration-150"
           />
           <circle
             cx="50"
             cy="75"
             r={beatPhase === 2 ? "2.5" : "1.5"}
-            fill="#4158D0"
+            fill="#20D0FF"
             className="transition-all duration-150"
           />
         </svg>
 
         {/* Effet de lueur qui pulse avec le battement */}
         <div
-          className={`absolute inset-0 bg-[#00ffcc] blur-xl transition-all duration-150 ${getGlowSize()}`}
+          className={`absolute inset-0 bg-[#00BFFF] blur-xl transition-all duration-150 ${getGlowSize()}`}
           style={{ opacity: getGlowOpacity() }}
         ></div>
 
         {/* Particules qui apparaissent pendant l'expansion */}
         {beatPhase === 2 && (
           <>
-            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-[#00ffcc] rounded-full animate-ping"></div>
-            <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#8A2BE2] rounded-full animate-ping"></div>
-            <div className="absolute bottom-1/4 left-1/2 w-1 h-1 bg-[#4158D0] rounded-full animate-ping"></div>
+            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-[#00BFFF] rounded-full animate-ping"></div>
+            <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#40E0FF] rounded-full animate-ping"></div>
+            <div className="absolute bottom-1/4 left-1/2 w-1 h-1 bg-[#20D0FF] rounded-full animate-ping"></div>
           </>
         )}
       </div>
 
       {/* Texte stylisé high-tech */}
       <div className="relative">
-        <span className="font-orbitron font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#00ffcc] via-[#4158D0] to-[#8A2BE2] animate-text text-xl">
+        <span className="font-orbitron font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] via-[#20D0FF] to-[#40E0FF] animate-text text-xl">
           NFT4LIFE
         </span>
-        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#00ffcc] via-[#4158D0] to-[#8A2BE2] opacity-70"></div>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#00BFFF] via-[#20D0FF] to-[#40E0FF] opacity-70"></div>
 
         {/* Lignes de circuit décoratives */}
-        <div className="absolute -right-2 top-0 h-full w-0.5 bg-[#00ffcc] opacity-30"></div>
-        <div className="absolute -left-2 bottom-0 h-0.5 w-2 bg-[#8A2BE2] opacity-30"></div>
+        <div className="absolute -right-2 top-0 h-full w-0.5 bg-[#00BFFF] opacity-30"></div>
+        <div className="absolute -left-2 bottom-0 h-0.5 w-2 bg-[#40E0FF] opacity-30"></div>
       </div>
     </div>
   )
