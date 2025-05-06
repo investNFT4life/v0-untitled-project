@@ -9,6 +9,7 @@ import { Carousel } from "@/components/carousel"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { HighTechDNA } from "@/components/high-tech-dna"
+import { ContactForm } from "@/components/contact-form"
 
 // Nouvelles images pour le carousel
 const heroImages = [
@@ -299,6 +300,19 @@ export default function HomePage() {
               <NFTCard key={nft.id} nft={nft} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Ajustement du padding pour réduire l'espace */}
+      <section id="contact" className="pt-8 pb-20 section-gradient relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text hero-gradient">
+            Contact Us
+          </h2>
+
+          <div className="max-w-3xl mx-auto text-center mb-12">{/* Removed the problematic text here */}</div>
+
+          <ContactForm />
         </div>
       </section>
 

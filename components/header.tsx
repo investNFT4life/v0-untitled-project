@@ -48,7 +48,7 @@ export function Header() {
                 NFTs
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/contact" className="text-white hover:text-[#00BFFF] transition-colors relative group">
+              <Link href="#contact" className="text-white hover:text-[#00BFFF] transition-colors relative group">
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
               </Link>
@@ -103,7 +103,7 @@ export function Header() {
                   NFTs
                 </Link>
                 <Link
-                  href="/contact"
+                  href="#contact"
                   className="text-white hover:text-[#00BFFF] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

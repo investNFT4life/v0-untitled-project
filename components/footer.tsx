@@ -1,4 +1,7 @@
 import { LanguageSelector } from "@/components/language-selector"
+import Link from "next/link"
+import { TermsDialog } from "./terms-dialog"
+import { PrivacyDialog } from "./privacy-dialog"
 
 export function Footer() {
   return (
@@ -21,19 +24,19 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
+                <Link href="/" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#nfts" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
+                <Link href="#nfts" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
                   NFTs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
+                <Link href="#contact" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -42,8 +45,8 @@ export function Footer() {
               Contact
             </h3>
             <ul className="space-y-2 text-gray-400">
-              <li>Email: contact@mynft4.life</li>
-              <li>Paris, France</li>
+              <li>Email: invest.m21@proton.me</li>
+              <li>Geneva, Switzerland</li>
             </ul>
           </div>
           <div>
@@ -52,14 +55,22 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="/terms" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
-                  Terms & Conditions
-                </a>
+                <TermsDialog
+                  trigger={
+                    <button className="text-gray-400 hover:text-[#00BFFF] transition-colors text-left">
+                      Terms & Conditions
+                    </button>
+                  }
+                />
               </li>
               <li>
-                <a href="/privacy" className="text-gray-400 hover:text-[#00BFFF] transition-colors">
-                  Privacy Policy
-                </a>
+                <PrivacyDialog
+                  trigger={
+                    <button className="text-gray-400 hover:text-[#00BFFF] transition-colors text-left">
+                      Privacy Policy
+                    </button>
+                  }
+                />
               </li>
             </ul>
             <div className="mt-4">

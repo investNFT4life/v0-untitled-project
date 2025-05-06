@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { TermsDialog } from "./terms-dialog"
 
 interface NFTProps {
   nft: {
@@ -90,27 +91,33 @@ export default function NFTCard({ nft }: NFTProps) {
           </div>
         )}
 
-        {nft.legalText && (
-          <div className="flex items-start mb-4">
-            <input
-              type="checkbox"
-              id={`terms-${nft.id}`}
-              className="mr-2 mt-1"
-              checked={agreeToTerms}
-              onChange={() => setAgreeToTerms(!agreeToTerms)}
-            />
-            <label htmlFor={`terms-${nft.id}`} className="text-xs text-white">
-              {nft.legalText}
-            </label>
-          </div>
-        )}
+        <div className="flex items-start mb-4">
+          <input
+            type="checkbox"
+            id={`terms-${nft.id}`}
+            className="mr-2 mt-1"
+            checked={agreeToTerms}
+            onChange={() => setAgreeToTerms(!agreeToTerms)}
+          />
+          <label htmlFor={`terms-${nft.id}`} className="text-xs text-white">
+            I agree to the{" "}
+            <TermsDialog
+              trigger={
+                <button type="button" className="text-[#00BFFF] hover:underline">
+                  Terms & Conditions
+                </button>
+              }
+            />{" "}
+            and understand that my purchase supports the MyNFT4.LIFE mission.
+          </label>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-2 mt-4">
           <Dialog>
             <DialogTrigger asChild>
               <Button
                 className="w-full bg-[#00BFFF] hover:bg-[#40E0FF] text-black font-medium"
-                disabled={nft.legalText && !agreeToTerms}
+                disabled={!agreeToTerms}
               >
                 <CreditCard className="mr-2 h-4 w-4" />
                 Buy with Card
@@ -157,10 +164,7 @@ export default function NFTCard({ nft }: NFTProps) {
             </DialogContent>
           </Dialog>
 
-          <Button
-            className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium"
-            disabled={nft.legalText && !agreeToTerms}
-          >
+          <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium" disabled={!agreeToTerms}>
             <Wallet className="mr-2 h-4 w-4" />
             Buy with Wallet
           </Button>
