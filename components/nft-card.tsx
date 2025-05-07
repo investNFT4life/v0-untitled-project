@@ -38,7 +38,7 @@ export default function NFTCard({ nft }: NFTProps) {
   return (
     <Card className="bg-transparent border-0 overflow-hidden relative shadow-xl">
       <div className="h-2 w-full bg-gradient-to-r from-[#39FF14] to-[#66FF33] relative"></div>
-      <CardContent className="p-6 relative bg-[#121212]/80 backdrop-blur-sm">
+      <CardContent className="p-8 relative bg-[#121212]/80 backdrop-blur-sm">
         <div className="relative mb-6 overflow-hidden rounded-lg">
           <div className="relative w-full aspect-square bg-gradient-to-b from-black to-[#121212] rounded-lg overflow-hidden">
             <div className="absolute inset-0 flex items-center justify-center">
@@ -64,7 +64,7 @@ export default function NFTCard({ nft }: NFTProps) {
         <h3 className="text-2xl font-bold mb-1 text-[#39FF14] text-glow">{nft.name}</h3>
         {nft.subtitle && <p className="text-white text-sm mb-3">{nft.subtitle}</p>}
 
-        <div className="mb-4">
+        <div className="mb-6">
           <div>
             <p className="text-white text-sm">Price</p>
             <p className="text-xl font-bold text-[#39FF14] text-glow">{nft.price}</p>
@@ -73,10 +73,10 @@ export default function NFTCard({ nft }: NFTProps) {
           </div>
         </div>
 
-        <p className="text-white my-4">{nft.description}</p>
+        <p className="text-white my-6">{nft.description}</p>
 
         {nft.benefits && (
-          <div className="my-4">
+          <div className="my-6">
             <p className="font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#39FF14] to-[#66FF33]">
               {nft.id.charAt(0).toUpperCase() + nft.id.slice(1)} Benefits
             </p>
@@ -91,7 +91,7 @@ export default function NFTCard({ nft }: NFTProps) {
           </div>
         )}
 
-        <div className="flex items-start mb-4">
+        <div className="flex items-start mb-6">
           <input
             type="checkbox"
             id={`terms-${nft.id}`}

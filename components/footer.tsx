@@ -5,11 +5,11 @@ import { PrivacyDialog } from "./privacy-dialog"
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0f14] py-12 relative overflow-hidden">
+    <footer className="bg-[#0a0f14] py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#39FF14]/5"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <h3 className="text-lg font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#39FF14] to-[#66FF33] text-glow">
               NFT4LIFE
@@ -78,7 +78,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#1a2a3a] mt-8 pt-8 text-center text-gray-500 text-sm">
+        <div className="border-t border-[#1a2a3a] mt-10 pt-10 text-center text-gray-500 text-sm">
           <p>© 2025 myNFT4.life. All rights reserved.</p>
         </div>
       </div>

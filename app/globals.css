@@ -150,3 +150,38 @@ body {
 .text-glow {
   text-shadow: 0 0 5px rgba(57, 255, 20, 0.7), 0 0 10px rgba(57, 255, 20, 0.5);
 }
+
+/* Classe pour améliorer l'espacement des sections */
+.section-spacing {
+  margin-top: 3.4%;
+  margin-bottom: 3.4%;
+}
+
+/* Amélioration de l'espacement des conteneurs */
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+/* Amélioration de l'espacement des textes */
+p {
+  line-height: 1.8;
+  margin-bottom: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.8em;
+  line-height: 1.3;
+}

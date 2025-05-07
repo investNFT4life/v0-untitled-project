@@ -1,13 +1,15 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, MapPin, Send, Check } from "lucide-react"
+import { Mail, MapPin, Send, Check, AlertCircle } from "lucide-react"
 
 export function ContactForm() {
+  // Clé d'accès Web3Forms fournie
+  const WEB3FORMS_ACCESS_KEY = "db2040f0-3829-45ad-a3f4-f779e89d4665"
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,26 +31,33 @@ export function ContactForm() {
     setError("")
 
     try {
-      // Simuler l'envoi du formulaire
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Utiliser Web3Forms pour envoyer l'email avec la clé fournie
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "NFT4LIFE Contact Form",
+        }),
+      })
 
-      // En production, vous utiliseriez une API route pour envoyer l'email
-      // Exemple:
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     ...formData,
-      //     recipient: 'invest.m21@proton.me'
-      //   })
-      // })
+      const data = await response.json()
 
-      // if (!response.ok) throw new Error('Failed to send message')
-
-      setIsSubmitted(true)
-      setFormData({ name: "", email: "", subject: "", message: "" })
+      if (data.success) {
+        setIsSubmitted(true)
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        throw new Error(data.message || "Une erreur est survenue lors de l'envoi du message")
+      }
     } catch (err) {
-      setError("Failed to send message. Please try again later.")
+      setError(err instanceof Error ? err.message : "Erreur lors de l'envoi du message. Veuillez réessayer plus tard.")
       console.error(err)
     } finally {
       setIsSubmitting(false)
@@ -99,8 +108,14 @@ export function ContactForm() {
               </div>
 
               <div className="md:col-span-2">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Champ caché pour la clé d'accès Web3Forms */}
+                  <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+
+                  {/* Champ caché pour la redirection après soumission (optionnel) */}
+                  <input type="hidden" name="redirect" value="false" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-1 text-white">
                         Your Name
@@ -162,7 +177,12 @@ export function ContactForm() {
                     />
                   </div>
 
-                  {error && <p className="text-red-500 text-sm">{error}</p>}
+                  {error && (
+                    <div className="bg-red-900/20 border border-red-500/50 rounded-md p-3 flex items-start">
+                      <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+                      <p className="text-red-200 text-sm">{error}</p>
+                    </div>
+                  )}
 
                   <Button type="submit" disabled={isSubmitting} className="w-full nft-button-primary">
                     {isSubmitting ? (

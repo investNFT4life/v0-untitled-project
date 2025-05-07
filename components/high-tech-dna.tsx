@@ -15,7 +15,7 @@ export function HighTechDNA() {
     // Définir les dimensions du canvas
     const updateCanvasSize = () => {
       canvas.width = window.innerWidth
-      canvas.height = 180 // Hauteur réduite pour moins d'espacement
+      canvas.height = 220 // Hauteur augmentée pour plus d'espacement
     }
 
     updateCanvasSize()

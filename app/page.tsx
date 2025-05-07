@@ -216,7 +216,7 @@ export default function HomePage() {
       </section>
 
       {/* Espacement supplémentaire entre Carousel et ACT NOW */}
-      <div className="h-6"></div>
+      <div className="h-10"></div>
 
       {/* ACT NOW Button Section */}
       <div className="flex justify-center py-12 pb-4 bg-black relative z-10">
@@ -232,11 +232,11 @@ export default function HomePage() {
       </div>
 
       {/* Espacement supplémentaire entre ACT NOW et le texte */}
-      <div className="h-6"></div>
+      <div className="h-12"></div>
 
       {/* Mission Section with Medtech Graphics */}
-      <section className="py-16 pt-0 section-gradient relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 pt-4 section-gradient relative overflow-hidden section-spacing">
+        <div className="container mx-auto relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 hero-gradient text-glow">Our Mission</h2>
             <p className="text-xl leading-relaxed mb-6">
@@ -247,7 +247,7 @@ export default function HomePage() {
               Join us. Choose health. Choose life. Act NOW!
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20 max-w-2xl mx-auto">
               <div className="card-bg p-8 rounded-xl border border-[#39FF14]/20 shadow-lg shadow-[#39FF14]/5 hover:shadow-[#39FF14]/10 transition-all">
                 <div className="text-[#39FF14] text-4xl font-bold mb-4 text-glow">100%</div>
                 <h3 className="text-xl font-semibold mb-2 hero-gradient">Transparency</h3>
@@ -283,13 +283,13 @@ export default function HomePage() {
       </section>
 
       {/* High-Tech DNA Animation Separator */}
-      <div className="relative overflow-hidden py-2">
+      <div className="relative overflow-hidden py-8 my-6">
         <HighTechDNA />
       </div>
 
       {/* NFT Collection Section */}
-      <section id="nfts" className="pt-4 pb-16 section-gradient relative">
-        <div className="container mx-auto px-4 relative z-10">
+      <section id="nfts" className="pt-8 pb-20 section-gradient relative section-spacing">
+        <div className="container mx-auto relative z-10">
           <h2 className="text-4xl font-bold text-center mb-6 hero-gradient text-glow">Our Exclusive Collection</h2>
 
           <div className="max-w-3xl mx-auto text-center mb-16">
@@ -309,7 +309,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {nfts.map((nft) => (
               <NFTCard key={nft.id} nft={nft} />
             ))}
@@ -318,8 +318,8 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 section-gradient relative">
-        <div className="container mx-auto px-4 relative z-10">
+      <section id="contact" className="py-20 section-gradient relative section-spacing">
+        <div className="container mx-auto relative z-10">
           <h2 className="text-4xl font-bold text-center mb-6 hero-gradient text-glow">Contact Us</h2>
 
           <div className="max-w-3xl mx-auto text-center mb-12">{/* Removed the problematic text here */}</div>
