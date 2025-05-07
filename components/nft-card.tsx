@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, CreditCard, Wallet } from "lucide-react"
+import { Check } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -116,7 +116,6 @@ export default function NFTCard({ nft }: NFTProps) {
           <Dialog>
             <DialogTrigger asChild>
               <Button className="w-full nft-button-primary glow-effect" disabled={!agreeToTerms}>
-                <CreditCard className="mr-2 h-4 w-4" />
                 Buy with Card
               </Button>
             </DialogTrigger>
@@ -162,7 +161,6 @@ export default function NFTCard({ nft }: NFTProps) {
           </Dialog>
 
           <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium" disabled={!agreeToTerms}>
-            <Wallet className="mr-2 h-4 w-4" />
             Buy with Wallet
           </Button>
         </div>
