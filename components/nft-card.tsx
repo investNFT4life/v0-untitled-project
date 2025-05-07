@@ -5,14 +5,6 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Check } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import { TermsDialog } from "./terms-dialog"
 
 interface NFTProps {
@@ -34,6 +26,20 @@ interface NFTProps {
 export default function NFTCard({ nft }: NFTProps) {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+
+  // Fonction pour obtenir le lien Stripe en fonction de l'ID du NFT
+  const getStripeLink = (id: string) => {
+    switch (id) {
+      case "zinc":
+        return "https://buy.stripe.com/8wMg2ZfRlaVU5rycMT"
+      case "gold":
+        return "https://buy.stripe.com/dR6041bB57JI1bi28b"
+      case "black":
+        return "https://buy.stripe.com/5kAaIF6gL7JI1bidQV"
+      default:
+        return "#"
+    }
+  }
 
   return (
     <Card className="bg-transparent border-0 overflow-hidden relative shadow-xl">
@@ -113,52 +119,17 @@ export default function NFTCard({ nft }: NFTProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 mt-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="w-full nft-button-primary glow-effect" disabled={!agreeToTerms}>
-                Buy with Card
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="bg-[#121212] text-white border border-[#39FF14]/20 backdrop-blur-lg">
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-[#39FF14]">{nft.name}</DialogTitle>
-                <DialogDescription className="text-white">Complete your purchase with credit card</DialogDescription>
-              </DialogHeader>
-              <div className="mt-4">
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Card Number</label>
-                    <input
-                      type="text"
-                      placeholder="1234 5678 9012 3456"
-                      className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Expiration Date</label>
-                      <input
-                        type="text"
-                        placeholder="MM/YY"
-                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1">CVC</label>
-                      <input
-                        type="text"
-                        placeholder="123"
-                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                      />
-                    </div>
-                  </div>
-                  <Button className="w-full nft-button-primary mt-4">
-                    Pay <span className="text-black font-bold">{nft.price}</span>
-                  </Button>
-                </form>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <Button
+            className="w-full nft-button-primary glow-effect"
+            disabled={!agreeToTerms}
+            onClick={() => {
+              if (agreeToTerms) {
+                window.open(getStripeLink(nft.id), "_blank")
+              }
+            }}
+          >
+            Buy with Card
+          </Button>
 
           <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium" disabled={!agreeToTerms}>
             Buy with Wallet
