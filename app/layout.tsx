@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const montserrat = Montserrat({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "NFT4LIFE - Blockchain for Health",
+  title: "myNFT4.life - Blockchain for Health",
   description: "The first NFT collection designed to save real lives through blockchain technology.",
     generator: 'v0.dev'
 }

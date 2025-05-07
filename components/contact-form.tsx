@@ -61,7 +61,7 @@ export function ContactForm() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          from_name: "NFT4LIFE Contact Form",
+          from_name: "myNFT4.life Contact Form",
           // Ajouter des champs supplémentaires pour le suivi
           botcheck: "",
           redirect: "false",

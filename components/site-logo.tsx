@@ -23,7 +23,7 @@ export function SiteLogo({ className }: { className?: string }) {
         />
         {isAnimating && <span className="absolute inset-0 rounded-full bg-accent/20 animate-ping"></span>}
       </div>
-      <span className="font-bold text-xl tracking-tight text-gradient">NFT4LIFE</span>
+      <span className="font-bold text-xl tracking-tight text-gradient">myNFT4.life</span>
     </div>
   )
 }

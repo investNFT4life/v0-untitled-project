@@ -14,8 +14,7 @@ export function Footer() {
           <div>
             <SiteLogo className="mb-4" />
             <p className="text-muted-foreground">
-              A marketplace for digital collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive
-              digital assets.
+              The first NFT collection designed to save real lives through blockchain technology.
             </p>
             <div className="flex space-x-4 mt-6">
               <a
@@ -108,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border mt-10 pt-6 text-center text-muted-foreground text-sm">
-          <p>Copyright © 2023 M21</p>
+          <p>© 2025 myNFT4.life. All rights reserved.</p>
         </div>
       </div>
     </footer>

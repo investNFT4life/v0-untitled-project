@@ -142,7 +142,7 @@ export default function NFTCard({ nft, index }: NFTProps) {
                   </button>
                 }
               />{" "}
-              and understand that my purchase supports the MyNFT4.LIFE mission.
+              and understand that my purchase supports the myNFT4.LIFE mission.
             </label>
           </div>
 
