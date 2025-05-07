@@ -44,6 +44,12 @@ export default function NFTCard({ nft, index }: NFTProps) {
     }
   }
 
+  // Mettre à jour la fonction pour le lien "Buy with Wallet"
+  const getWalletLink = (id: string) => {
+    // Rediriger vers une page externe pour l'achat avec wallet
+    return "https://v0-new-project-llrducvl01w-kv779zaxj-fabs-projects-f4042af8.vercel.app/"
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -155,7 +161,16 @@ export default function NFTCard({ nft, index }: NFTProps) {
               Buy with Card
             </Button>
 
-            <Button className="w-full" variant="outline" disabled={!agreeToTerms}>
+            <Button
+              className="w-full"
+              variant="outline"
+              disabled={!agreeToTerms}
+              onClick={() => {
+                if (agreeToTerms) {
+                  window.open(getWalletLink(nft.id), "_blank")
+                }
+              }}
+            >
               <span className="flex items-center">
                 Buy with Wallet
                 <ExternalLink className="ml-2 h-4 w-4" />

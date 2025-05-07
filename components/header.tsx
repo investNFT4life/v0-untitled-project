@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { LanguageSelector } from "@/components/language-selector"
+import { Menu, X, ChevronRight } from "lucide-react"
 import { SiteLogo } from "@/components/site-logo"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
@@ -52,15 +51,16 @@ export function Header() {
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <LanguageSelector />
               <ThemeToggle />
               <Button className="bg-gradient hover:opacity-90 transition-opacity">
-                <Link href="#nfts">Get Started</Link>
+                <Link href="#nfts" className="flex items-center">
+                  Get Started
+                  <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </nav>
 
             <div className="flex items-center md:hidden">
-              <LanguageSelector />
               <ThemeToggle />
               <button
                 className="ml-4 text-foreground"
@@ -115,8 +115,9 @@ export function Header() {
                   Contact
                 </Link>
                 <Button className="bg-gradient hover:opacity-90 transition-opacity">
-                  <Link href="#nfts" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="#nfts" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center">
                     Get Started
+                    <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </nav>

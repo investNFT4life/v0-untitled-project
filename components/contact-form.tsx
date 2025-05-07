@@ -32,6 +32,21 @@ export function ContactForm() {
     setIsSubmitting(true)
     setError("")
 
+    // Validation supplémentaire
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setError("Please fill in all form fields.")
+      setIsSubmitting(false)
+      return
+    }
+
+    // Vérification basique du format email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setError("Please enter a valid email address.")
+      setIsSubmitting(false)
+      return
+    }
+
     try {
       // Utiliser Web3Forms pour envoyer l'email avec la clé fournie
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -47,6 +62,9 @@ export function ContactForm() {
           subject: formData.subject,
           message: formData.message,
           from_name: "NFT4LIFE Contact Form",
+          // Ajouter des champs supplémentaires pour le suivi
+          botcheck: "",
+          redirect: "false",
         }),
       })
 
@@ -55,11 +73,13 @@ export function ContactForm() {
       if (data.success) {
         setIsSubmitted(true)
         setFormData({ name: "", email: "", subject: "", message: "" })
+        // Ajouter un événement de suivi si nécessaire
+        console.log("Form submitted successfully", data)
       } else {
-        throw new Error(data.message || "Une erreur est survenue lors de l'envoi du message")
+        throw new Error(data.message || "An error occurred while sending the message")
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur lors de l'envoi du message. Veuillez réessayer plus tard.")
+      setError(err instanceof Error ? err.message : "Error sending message. Please try again later.")
       console.error(err)
     } finally {
       setIsSubmitting(false)
@@ -78,7 +98,7 @@ export function ContactForm() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Contact Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Contact</h2>
           <p className="text-lg">Have questions or want to learn more about our mission? We'd love to hear from you.</p>
         </motion.div>
 
@@ -98,8 +118,7 @@ export function ContactForm() {
                   </div>
                   <h3 className="text-2xl font-bold text-gradient mb-4">Message Sent!</h3>
                   <p className="text-foreground/80 mb-8 max-w-md">
-                    Thank you for reaching out. We'll get back to you soon. Your message helps us improve our service
-                    and mission.
+                    Thank you for reaching out. We'll get back to you soon.
                   </p>
                   <Button
                     onClick={() => setIsSubmitted(false)}

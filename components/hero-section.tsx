@@ -29,7 +29,8 @@ export function HeroSection({ images }: HeroProps) {
     <section className="relative min-h-screen flex items-center pt-20">
       {/* Background with parallax effect */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90 z-10"></div>
+        {/* Gradient overlay - Ajusté pour être légèrement plus foncé */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/75 via-background/45 to-background/75 z-10"></div>
         <div className="absolute inset-0 z-0">
           {images[currentSlide] && (
             <Image
@@ -37,22 +38,22 @@ export function HeroSection({ images }: HeroProps) {
               alt={images[currentSlide].alt}
               fill
               priority
-              className="object-cover transition-opacity duration-1000"
+              className="object-cover transition-opacity duration-1000 brightness-105 contrast-105 dark:brightness-95"
               sizes="100vw"
             />
           )}
         </div>
       </div>
 
-      {/* Decorative elements */}
+      {/* Decorative elements - Opacité réduite pour moins interférer avec les images */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float opacity-60"></div>
         <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float"
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float opacity-60"
           style={{ animationDelay: "2s" }}
         ></div>
         <div
-          className="absolute top-1/2 right-1/3 w-48 h-48 bg-accent/20 rounded-full blur-3xl animate-float"
+          className="absolute top-1/2 right-1/3 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-float opacity-60"
           style={{ animationDelay: "4s" }}
         ></div>
       </div>

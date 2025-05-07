@@ -1,7 +1,8 @@
+"use client"
+
 import Link from "next/link"
 import { TermsDialog } from "./terms-dialog"
 import { PrivacyDialog } from "./privacy-dialog"
-import { LanguageSelector } from "./language-selector"
 import { SiteLogo } from "./site-logo"
 import { Github, Twitter, Linkedin, Instagram } from "lucide-react"
 
@@ -13,19 +14,40 @@ export function Footer() {
           <div>
             <SiteLogo className="mb-4" />
             <p className="text-muted-foreground">
-              The first NFT collection designed to save real lives through blockchain technology.
+              A marketplace for digital collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive
+              digital assets.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Github className="h-5 w-5" />
               </a>
             </div>
@@ -82,14 +104,11 @@ export function Footer() {
                 />
               </li>
             </ul>
-            <div className="mt-6">
-              <LanguageSelector />
-            </div>
           </div>
         </div>
 
         <div className="border-t border-border mt-10 pt-6 text-center text-muted-foreground text-sm">
-          <p>© 2025 myNFT4.life. All rights reserved.</p>
+          <p>Copyright © 2023 M21</p>
         </div>
       </div>
     </footer>

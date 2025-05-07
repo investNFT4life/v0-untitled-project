@@ -1,28 +1,30 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Check, ChevronDown, Globe } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-
-const languages = [
-  { code: "en", name: "English" },
-  { code: "fr", name: "Français" },
-  { code: "es", name: "Español" },
-  { code: "de", name: "Deutsch" },
-  { code: "it", name: "Italiano" },
-  { code: "pt", name: "Português" },
-  { code: "ru", name: "Русский" },
-  { code: "zh", name: "中文" },
-]
+import { useLanguage, languages } from "@/contexts/language-context"
 
 export function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState("en")
+  const { language, setLanguage } = useLanguage()
+  const [mounted, setMounted] = useState(false)
 
-  const handleLanguageChange = (code: string) => {
-    setSelectedLanguage(code)
+  // Éviter les problèmes d'hydratation
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <div className="flex items-center gap-1 text-foreground">
+        <Globe className="h-4 w-4" />
+        <span className="hidden md:inline">English</span>
+        <ChevronDown className="h-4 w-4" />
+      </div>
+    )
   }
 
-  const currentLanguage = languages.find((lang) => lang.code === selectedLanguage)?.name || "English"
+  const currentLanguage = languages.find((lang) => lang.code === language)?.name || "English"
 
   return (
     <DropdownMenu>
@@ -32,16 +34,16 @@ export function LanguageSelector() {
         <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="glass border border-border">
-        {languages.map((language) => (
+        {languages.map((lang) => (
           <DropdownMenuItem
-            key={language.code}
-            onClick={() => handleLanguageChange(language.code)}
+            key={lang.code}
+            onClick={() => setLanguage(lang.code)}
             className={`flex items-center justify-between cursor-pointer hover:bg-primary/10 ${
-              selectedLanguage === language.code ? "text-primary" : "text-foreground"
+              language === lang.code ? "text-primary" : "text-foreground"
             }`}
           >
-            {language.name}
-            {selectedLanguage === language.code && <Check className="h-4 w-4 ml-2" />}
+            {lang.name}
+            {language === lang.code && <Check className="h-4 w-4 ml-2" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
