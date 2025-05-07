@@ -18,22 +18,22 @@ export function TermsDialog({ trigger }: TermsDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-[#121212] text-white border border-[#00BFFF]/20">
+      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-[#121212] text-white border border-[#39FF14]/20">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-[#00BFFF]">Terms & Conditions</DialogTitle>
+          <DialogTitle className="text-2xl text-[#39FF14] text-glow">Terms & Conditions</DialogTitle>
           <DialogDescription className="text-white">
             Please read these terms and conditions carefully before using our service.
           </DialogDescription>
         </DialogHeader>
 
         <div className="mt-4 space-y-4">
-          <h3 className="text-lg font-semibold text-[#00BFFF]">1. Introduction</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">1. Introduction</h3>
           <p>
             Welcome to myNFT4.life. These Terms and Conditions govern your use of our website and services, including
             the purchase and ownership of our NFTs.
           </p>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">2. NFT Ownership</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">2. NFT Ownership</h3>
           <p>
             When you purchase an NFT from myNFT4.life, you own the NFT (the non-fungible token) that points to a
             specific digital asset. Your purchase of the NFT means:
@@ -46,14 +46,14 @@ export function TermsDialog({ trigger }: TermsDialogProps) {
             </li>
           </ul>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">3. Use of Funds</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">3. Use of Funds</h3>
           <p>
             myNFT4.life is committed to transparency in how funds from NFT sales are used. A significant portion of
             proceeds will be directed toward medical initiatives, healthcare access, and veterinary care as outlined in
             our mission statement.
           </p>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">4. Prohibited Activities</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">4. Prohibited Activities</h3>
           <p>You agree not to:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Use the NFT for any illegal purpose.</li>
@@ -64,29 +64,29 @@ export function TermsDialog({ trigger }: TermsDialogProps) {
             </li>
           </ul>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">5. Disclaimers</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">5. Disclaimers</h3>
           <p>
             NFTs are a relatively new and evolving technology. The value of NFTs can be volatile and may decrease over
             time. myNFT4.life makes no guarantees regarding the future value of the NFTs sold on our platform.
           </p>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">6. Limitation of Liability</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">6. Limitation of Liability</h3>
           <p>
             To the maximum extent permitted by law, myNFT4.life shall not be liable for any indirect, incidental,
             special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly
             or indirectly, or any loss of data, use, goodwill, or other intangible losses.
           </p>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">7. Changes to Terms</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">7. Changes to Terms</h3>
           <p>
             myNFT4.life reserves the right to modify these Terms at any time. We will provide notice of significant
             changes by posting the updated Terms on our website.
           </p>
 
-          <h3 className="text-lg font-semibold text-[#00BFFF]">8. Contact Information</h3>
+          <h3 className="text-lg font-semibold text-[#39FF14]">8. Contact Information</h3>
           <p>
             If you have any questions about these Terms, please contact us at{" "}
-            <a href="mailto:invest.m21@proton.me" className="text-[#00BFFF] hover:underline">
+            <a href="mailto:invest.m21@proton.me" className="text-[#39FF14] hover:underline">
               invest.m21@proton.me
             </a>
             .

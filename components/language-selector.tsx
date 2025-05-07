@@ -25,18 +25,18 @@ export function LanguageSelector() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-white hover:text-[#00BFFF] transition-colors">
+      <DropdownMenuTrigger className="flex items-center gap-1 text-white hover:text-[#39FF14] transition-colors">
         <Globe className="h-4 w-4" />
         <span className="hidden md:inline">{currentLanguage}</span>
         <ChevronDown className="h-4 w-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-[#121212] border border-[#00BFFF]/20 text-white">
+      <DropdownMenuContent className="bg-[#121212] border border-[#39FF14]/20 text-white">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className={`flex items-center justify-between cursor-pointer hover:bg-[#00BFFF]/10 ${
-              selectedLanguage === language.code ? "text-[#00BFFF]" : "text-white"
+            className={`flex items-center justify-between cursor-pointer hover:bg-[#39FF14]/10 ${
+              selectedLanguage === language.code ? "text-[#39FF14]" : "text-white"
             }`}
           >
             {language.name}

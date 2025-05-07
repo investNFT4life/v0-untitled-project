@@ -65,7 +65,7 @@ const nfts = [
     legalText: "I agree to the Terms & Conditions and understand that my purchase supports the MyNFT4.LIFE mission.",
     availability: "Available Now",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Zinc_Ed-utQkXnIG128mrhGb8ZtdsZDMSI8gdQ.png",
-    textColor: "text-[#00BFFF]",
+    textColor: "text-[#39FF14]",
     buttonColor: "nft-button-primary",
   },
   {
@@ -84,7 +84,7 @@ const nfts = [
     legalText: "I agree to the Terms & Conditions and understand that my purchase supports the MyNFT4.LIFE mission.",
     availability: "Available Now",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gold_Ed-xT738FmHU3sRnEZxe8g5G2EibBsndu.png",
-    textColor: "text-[#00BFFF]",
+    textColor: "text-[#39FF14]",
     buttonColor: "nft-button-primary",
   },
   {
@@ -102,7 +102,7 @@ const nfts = [
     legalText: "I agree to the Terms & Conditions and understand that my purchase supports the MyNFT4.LIFE mission.",
     availability: "Available Now",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Black_Ed-r14egL4MWlvJegahz1pPgJ5SQ412C8.png",
-    textColor: "text-[#00BFFF]",
+    textColor: "text-[#39FF14]",
     buttonColor: "nft-button-primary",
   },
 ]
@@ -110,6 +110,11 @@ const nfts = [
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1))
@@ -141,8 +146,8 @@ export default function HomePage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
         <div className="text-center">
-          <div className="text-[#00BFFF] text-2xl mb-4">Chargement...</div>
-          <div className="w-16 h-16 border-4 border-[#00BFFF] border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="text-[#39FF14] text-2xl mb-4">Chargement...</div>
+          <div className="w-16 h-16 border-4 border-[#39FF14] border-t-transparent rounded-full animate-spin mx-auto"></div>
         </div>
       </div>
     )
@@ -171,11 +176,11 @@ export default function HomePage() {
             <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
               This isn't just a mission.
               <br />
-              <span className="bg-clip-text text-transparent hero-gradient font-semibold">
+              <span className="hero-gradient font-semibold text-glow">
                 It's a call for dignity. A gesture of hope. A promise of life.
               </span>
             </p>
-            <Button asChild className="nft-button-primary text-lg rounded-full shadow-lg shadow-[#00BFFF]/20 px-8 py-6">
+            <Button asChild className="nft-button-primary text-lg rounded-full shadow-lg shadow-[#39FF14]/20 px-8 py-6">
               <Link href="#nfts">Discover our NFTs</Link>
             </Button>
           </div>
@@ -187,7 +192,7 @@ export default function HomePage() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                currentSlide === index ? "bg-[#00BFFF] shadow-md shadow-[#00BFFF]/50" : "bg-gray-600"
+                currentSlide === index ? "bg-[#39FF14] shadow-md shadow-[#39FF14]/50" : "bg-gray-600"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -196,54 +201,67 @@ export default function HomePage() {
 
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-full p-2 z-20 hover:bg-[#00BFFF]/20 transition-colors"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-full p-2 z-20 hover:bg-[#39FF14]/20 transition-colors"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-8 h-8" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-full p-2 z-20 hover:bg-[#00BFFF]/20 transition-colors"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/70 backdrop-blur-sm rounded-full p-2 z-20 hover:bg-[#39FF14]/20 transition-colors"
           aria-label="Next slide"
         >
           <ChevronRight className="w-8 h-8" />
         </button>
       </section>
 
+      {/* Espacement supplémentaire entre Carousel et ACT NOW */}
+      <div className="h-6"></div>
+
+      {/* ACT NOW Button Section */}
+      <div className="flex justify-center py-12 pb-4 bg-black relative z-10">
+        <Button
+          asChild
+          className="nft-button-primary text-xl font-bold rounded-full shadow-lg shadow-[#39FF14]/30 px-10 py-7 animate-pulse hover:animate-none glow-effect"
+        >
+          <Link href="#nfts" className="flex items-center gap-2">
+            ACT NOW
+            <ChevronRight className="w-6 h-6" />
+          </Link>
+        </Button>
+      </div>
+
+      {/* Espacement supplémentaire entre ACT NOW et le texte */}
+      <div className="h-6"></div>
+
       {/* Mission Section with Medtech Graphics */}
-      <section className="py-20 pb-0 section-gradient relative overflow-hidden">
+      <section className="py-16 pt-0 section-gradient relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-transparent bg-clip-text hero-gradient">
-              Our Mission
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 hero-gradient text-glow">Our Mission</h2>
             <p className="text-xl leading-relaxed mb-6">
               We are revolutionizing the NFT world by creating the first collection with a real and measurable impact on
               global health. Each myNFT4.life token you purchase directly funds innovative medical solutions.
             </p>
-            <p className="text-2xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] animate-pulse">
+            <p className="text-2xl font-bold mb-10 hero-gradient animate-pulse text-glow">
               Join us. Choose health. Choose life. Act NOW!
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 max-w-2xl mx-auto">
-              <div className="card-bg p-8 rounded-xl border border-[#00BFFF]/20 shadow-lg shadow-[#00BFFF]/5 hover:shadow-[#00BFFF]/10 transition-all">
-                <div className="text-[#00BFFF] text-4xl font-bold mb-4">100%</div>
-                <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] to-[#40E0FF]">
-                  Transparency
-                </h3>
+              <div className="card-bg p-8 rounded-xl border border-[#39FF14]/20 shadow-lg shadow-[#39FF14]/5 hover:shadow-[#39FF14]/10 transition-all">
+                <div className="text-[#39FF14] text-4xl font-bold mb-4 text-glow">100%</div>
+                <h3 className="text-xl font-semibold mb-2 hero-gradient">Transparency</h3>
                 <p>Track the impact of your NFT in real-time through our blockchain traceability system.</p>
               </div>
-              <div className="card-bg p-8 rounded-xl border border-[#00BFFF]/20 shadow-lg shadow-[#00BFFF]/5 hover:shadow-[#00BFFF]/10 transition-all">
-                <div className="text-[#00BFFF] text-4xl font-bold mb-4">∞</div>
-                <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] to-[#40E0FF]">
-                  Lasting Value
-                </h3>
+              <div className="card-bg p-8 rounded-xl border border-[#39FF14]/20 shadow-lg shadow-[#39FF14]/5 hover:shadow-[#39FF14]/10 transition-all">
+                <div className="text-[#39FF14] text-4xl font-bold mb-4 text-glow">∞</div>
+                <h3 className="text-xl font-semibold mb-2 hero-gradient">Lasting Value</h3>
                 <p>Your NFT gains value while contributing to saving lives, today and tomorrow.</p>
               </div>
             </div>
 
-            <div className="mt-16 max-w-3xl mx-auto mb-8">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-transparent bg-clip-text hero-gradient">
+            <div className="mt-16 max-w-3xl mx-auto mb-2">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 hero-gradient text-glow">
                 Redefining How We Fund Health
               </h3>
               <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-6">
@@ -255,7 +273,7 @@ export default function HomePage() {
               <p className="text-xl md:text-2xl max-w-3xl mx-auto">
                 Each token is a raised voice, a broken barrier, a life protected — human or animal.
                 <br />
-                <span className="bg-clip-text text-transparent hero-gradient font-semibold">
+                <span className="hero-gradient font-semibold text-glow">
                   Together, we change the rules. With purpose. With heart. With real-world impact.
                 </span>
               </p>
@@ -265,21 +283,17 @@ export default function HomePage() {
       </section>
 
       {/* High-Tech DNA Animation Separator */}
-      <div className="relative overflow-hidden -mt-1 -mb-1">
+      <div className="relative overflow-hidden py-2">
         <HighTechDNA />
       </div>
 
       {/* NFT Collection Section */}
-      <section id="nfts" className="py-20 pt-0 section-gradient relative">
+      <section id="nfts" className="pt-4 pb-16 section-gradient relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-8 mt-12 text-transparent bg-clip-text hero-gradient">
-            Our Exclusive Collection
-          </h2>
+          <h2 className="text-4xl font-bold text-center mb-6 hero-gradient text-glow">Our Exclusive Collection</h2>
 
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text hero-gradient">
-              Medical Technology for Humanity
-            </h3>
+            <h3 className="text-3xl font-bold mb-6 hero-gradient text-glow">Medical Technology for Humanity</h3>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-6">
               This is your moment to make a difference.
               <br />
@@ -289,7 +303,7 @@ export default function HomePage() {
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
               <span className="font-semibold">Pick your edition. Power the mission.</span>
               <br />
-              <span className="bg-clip-text text-transparent hero-gradient font-semibold">
+              <span className="hero-gradient font-semibold text-glow">
                 Because what you do today… saves lives tomorrow.
               </span>
             </p>
@@ -303,12 +317,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section - Ajustement du padding pour réduire l'espace */}
-      <section id="contact" className="pt-8 pb-20 section-gradient relative">
+      {/* Contact Section */}
+      <section id="contact" className="py-16 section-gradient relative">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text hero-gradient">
-            Contact Us
-          </h2>
+          <h2 className="text-4xl font-bold text-center mb-6 hero-gradient text-glow">Contact Us</h2>
 
           <div className="max-w-3xl mx-auto text-center mb-12">{/* Removed the problematic text here */}</div>
 

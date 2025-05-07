@@ -29,7 +29,7 @@ export function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black bg-opacity-80 backdrop-blur-md py-3 shadow-lg shadow-[#00BFFF]/10"
+            ? "bg-black bg-opacity-80 backdrop-blur-md py-3 shadow-lg shadow-[#39FF14]/10"
             : "bg-transparent py-6"
         }`}
       >
@@ -40,17 +40,17 @@ export function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-white hover:text-[#00BFFF] transition-colors relative group">
+              <Link href="/" className="text-white hover:text-[#39FF14] transition-colors relative group">
                 Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#39FF14] to-[#66FF33] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="#nfts" className="text-white hover:text-[#00BFFF] transition-colors relative group">
+              <Link href="#nfts" className="text-white hover:text-[#39FF14] transition-colors relative group">
                 NFTs
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#39FF14] to-[#66FF33] transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="#contact" className="text-white hover:text-[#00BFFF] transition-colors relative group">
+              <Link href="#contact" className="text-white hover:text-[#39FF14] transition-colors relative group">
                 Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#39FF14] to-[#66FF33] transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <LanguageSelector />
             </nav>
@@ -90,21 +90,21 @@ export function Header() {
               <nav className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl">
                 <Link
                   href="/"
-                  className="text-white hover:text-[#00BFFF] transition-colors"
+                  className="text-white hover:text-[#39FF14] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="#nfts"
-                  className="text-white hover:text-[#00BFFF] transition-colors"
+                  className="text-white hover:text-[#39FF14] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   NFTs
                 </Link>
                 <Link
                   href="#contact"
-                  className="text-white hover:text-[#00BFFF] transition-colors"
+                  className="text-white hover:text-[#39FF14] transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact

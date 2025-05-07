@@ -58,33 +58,30 @@ export function ContactForm() {
   return (
     <div className="max-w-6xl mx-auto">
       <Card className="bg-transparent border-0 overflow-hidden relative shadow-xl">
-        <div className="h-2 w-full bg-gradient-to-r from-[#00BFFF] to-[#40E0FF] relative"></div>
+        <div className="h-2 w-full bg-gradient-to-r from-[#39FF14] to-[#66FF33] relative"></div>
         <CardContent className="p-6 relative bg-[#121212]/80 backdrop-blur-sm">
           {isSubmitted ? (
             <div className="flex flex-col items-center justify-center py-6 text-center">
-              <div className="w-16 h-16 bg-[#00BFFF]/10 rounded-full flex items-center justify-center mb-4">
-                <Check className="h-8 w-8 text-[#00BFFF]" />
+              <div className="w-16 h-16 bg-[#39FF14]/10 rounded-full flex items-center justify-center mb-4">
+                <Check className="h-8 w-8 text-[#39FF14]" />
               </div>
-              <h3 className="text-xl font-bold text-[#00BFFF] mb-2">Message Sent!</h3>
+              <h3 className="text-xl font-bold text-[#39FF14] mb-2 text-glow">Message Sent!</h3>
               <p className="text-gray-300 mb-6">Thank you for reaching out. We'll get back to you soon.</p>
-              <Button
-                onClick={() => setIsSubmitted(false)}
-                className="bg-[#00BFFF] hover:bg-[#40E0FF] text-black font-medium"
-              >
+              <Button onClick={() => setIsSubmitted(false)} className="nft-button-primary">
                 Send Another Message
               </Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
-                <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text hero-gradient">
+                <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text hero-gradient text-glow">
                   Get in Touch with Us
                 </h3>
                 <p className="text-lg mb-6 text-white">Questions? Reach out.</p>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-[#00BFFF] mr-3 mt-1" />
+                    <Mail className="h-6 w-6 text-[#39FF14] mr-3 mt-1" />
                     <div>
                       <h4 className="font-semibold text-white">Email Us</h4>
                       <p className="text-gray-300">invest.m21@proton.me</p>
@@ -92,7 +89,7 @@ export function ContactForm() {
                   </div>
 
                   <div className="flex items-start">
-                    <MapPin className="h-6 w-6 text-[#00BFFF] mr-3 mt-1" />
+                    <MapPin className="h-6 w-6 text-[#39FF14] mr-3 mt-1" />
                     <div>
                       <h4 className="font-semibold text-white">Location</h4>
                       <p className="text-gray-300">Geneva - Switzerland</p>
@@ -115,7 +112,7 @@ export function ContactForm() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full p-2 bg-black border border-[#00BFFF]/20 rounded-md focus:border-[#00BFFF]/50 focus:outline-none focus:ring-1 focus:ring-[#00BFFF]/30 text-white"
+                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
                       />
                     </div>
 
@@ -130,7 +127,7 @@ export function ContactForm() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full p-2 bg-black border border-[#00BFFF]/20 rounded-md focus:border-[#00BFFF]/50 focus:outline-none focus:ring-1 focus:ring-[#00BFFF]/30 text-white"
+                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
                       />
                     </div>
                   </div>
@@ -146,7 +143,7 @@ export function ContactForm() {
                       required
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full p-2 bg-black border border-[#00BFFF]/20 rounded-md focus:border-[#00BFFF]/50 focus:outline-none focus:ring-1 focus:ring-[#00BFFF]/30 text-white"
+                      className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
                     />
                   </div>
 
@@ -161,17 +158,13 @@ export function ContactForm() {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full p-2 bg-black border border-[#00BFFF]/20 rounded-md focus:border-[#00BFFF]/50 focus:outline-none focus:ring-1 focus:ring-[#00BFFF]/30 text-white resize-none"
+                      className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white resize-none"
                     />
                   </div>
 
                   {error && <p className="text-red-500 text-sm">{error}</p>}
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#00BFFF] hover:bg-[#40E0FF] text-black font-medium"
-                  >
+                  <Button type="submit" disabled={isSubmitting} className="w-full nft-button-primary">
                     {isSubmitting ? (
                       <span className="flex items-center">
                         <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></div>

@@ -28,9 +28,9 @@ export function HighTechDNA() {
     const connectionDistance = 100
     const baseRadius = 1.5
     const colors = {
-      primary: "#00BFFF", // Bleu électrique
-      secondary: "#40E0FF", // Bleu électrique clair
-      tertiary: "#0080B3", // Bleu électrique foncé
+      primary: "#39FF14", // Vert néon vif
+      secondary: "#66FF33", // Vert clair
+      tertiary: "#00CC00", // Vert foncé
       accent: "#FFFFFF", // Blanc pour les accents
     }
 
@@ -262,7 +262,7 @@ export function HighTechDNA() {
         ctx.beginPath()
         ctx.moveTo(x, y1)
         ctx.lineTo(x, y2)
-        ctx.strokeStyle = "#20D0FF"
+        ctx.strokeStyle = "#66FF33"
         ctx.stroke()
       }
 
@@ -284,7 +284,7 @@ export function HighTechDNA() {
         ref={canvasRef}
         className="w-full"
         style={{
-          background: "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,191,255,0.05), rgba(0,0,0,0.9))",
+          background: "linear-gradient(to right, rgba(0,0,0,0.9), rgba(57,255,20,0.05), rgba(0,0,0,0.9))",
         }}
       />
     </div>
