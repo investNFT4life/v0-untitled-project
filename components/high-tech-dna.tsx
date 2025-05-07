@@ -28,10 +28,10 @@ export function HighTechDNA() {
     const connectionDistance = 100
     const baseRadius = 1.5
     const colors = {
-      primary: "#39FF14", // Vert néon vif
-      secondary: "#66FF33", // Vert clair
-      tertiary: "#00CC00", // Vert foncé
-      accent: "#FFFFFF", // Blanc pour les accents
+      primary: "#0066FF", // Bleu électrique
+      secondary: "#00CCFF", // Bleu cyan
+      tertiary: "#00FF99", // Vert-bleu
+      accent: "#39FF14", // Vert électrique lumineux
     }
 
     // Classe pour les particules
@@ -237,7 +237,7 @@ export function HighTechDNA() {
 
       // Second brin d'ADN
       ctx.beginPath()
-      ctx.strokeStyle = colors.secondary
+      ctx.strokeStyle = colors.accent
       ctx.lineWidth = 2
 
       for (let x = 0; x < canvas.width; x += 5) {
@@ -251,7 +251,7 @@ export function HighTechDNA() {
       ctx.stroke()
 
       // Connexions entre les brins (barreaux de l'échelle d'ADN)
-      ctx.strokeStyle = colors.accent
+      ctx.strokeStyle = colors.secondary
       ctx.lineWidth = 1
       ctx.globalAlpha = 0.4
 
@@ -262,7 +262,7 @@ export function HighTechDNA() {
         ctx.beginPath()
         ctx.moveTo(x, y1)
         ctx.lineTo(x, y2)
-        ctx.strokeStyle = "#66FF33"
+        ctx.strokeStyle = colors.tertiary
         ctx.stroke()
       }
 
@@ -284,7 +284,7 @@ export function HighTechDNA() {
         ref={canvasRef}
         className="w-full"
         style={{
-          background: "linear-gradient(to right, rgba(0,0,0,0.9), rgba(57,255,20,0.05), rgba(0,0,0,0.9))",
+          background: "linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,102,255,0.05), rgba(0,0,0,0.9))",
         }}
       />
     </div>

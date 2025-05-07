@@ -90,10 +90,8 @@ export default function NFTCard({ nft, index }: NFTProps) {
                 />
               </div>
 
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                <span className="text-white font-medium">View Details</span>
-              </div>
+              {/* Overlay on hover - Suppression du texte "View Details" */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
 
