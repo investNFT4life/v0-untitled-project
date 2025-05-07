@@ -27,17 +27,31 @@ export default function NFTCard({ nft }: NFTProps) {
   const [agreeToTerms, setAgreeToTerms] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
-  // Fonction pour obtenir le lien Stripe en fonction de l'ID du NFT
-  const getStripeLink = (id: string) => {
-    switch (id) {
-      case "zinc":
-        return "https://buy.stripe.com/8wMg2ZfRlaVU5rycMT"
-      case "gold":
-        return "https://buy.stripe.com/dR6041bB57JI1bi28b"
-      case "black":
-        return "https://buy.stripe.com/5kAaIF6gL7JI1bidQV"
-      default:
-        return "#"
+  // Fonction pour obtenir le lien de paiement en fonction de l'ID du NFT et du type de paiement
+  const getPaymentLink = (id: string, paymentType: "card" | "wallet") => {
+    if (paymentType === "card") {
+      switch (id) {
+        case "zinc":
+          return "https://buy.stripe.com/8wMg2ZfRlaVU5rycMT"
+        case "gold":
+          return "https://buy.stripe.com/dR6041bB57JI1bi28b"
+        case "black":
+          return "https://buy.stripe.com/5kAaIF6gL7JI1bidQV"
+        default:
+          return "#"
+      }
+    } else {
+      // Liens pour les achats par wallet
+      switch (id) {
+        case "zinc":
+          return "/wallet-purchase/zinc" // Remplacez par votre URL réelle
+        case "gold":
+          return "/wallet-purchase/gold" // Remplacez par votre URL réelle
+        case "black":
+          return "/wallet-purchase/black" // Remplacez par votre URL réelle
+        default:
+          return "#"
+      }
     }
   }
 
@@ -124,14 +138,22 @@ export default function NFTCard({ nft }: NFTProps) {
             disabled={!agreeToTerms}
             onClick={() => {
               if (agreeToTerms) {
-                window.open(getStripeLink(nft.id), "_blank")
+                window.open(getPaymentLink(nft.id, "card"), "_blank")
               }
             }}
           >
             Buy with Card
           </Button>
 
-          <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium" disabled={!agreeToTerms}>
+          <Button
+            className="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium"
+            disabled={!agreeToTerms}
+            onClick={() => {
+              if (agreeToTerms) {
+                window.open(getPaymentLink(nft.id, "wallet"), "_blank")
+              }
+            }}
+          >
             Buy with Wallet
           </Button>
         </div>
