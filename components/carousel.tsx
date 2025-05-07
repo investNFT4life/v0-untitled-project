@@ -12,7 +12,7 @@ interface CarouselProps {
 export function Carousel({ images, currentSlide }: CarouselProps) {
   // Version simplifiée sans animations pour améliorer les performances
   if (!images || images.length === 0) {
-    return <div className="w-full h-full bg-black"></div>
+    return <div className="w-full h-full bg-white dark:bg-black"></div>
   }
 
   // S'assurer que currentSlide est dans les limites du tableau
@@ -20,7 +20,7 @@ export function Carousel({ images, currentSlide }: CarouselProps) {
   const currentImage = images[safeCurrentSlide]
 
   if (!currentImage || !currentImage.src) {
-    return <div className="w-full h-full bg-black"></div>
+    return <div className="w-full h-full bg-white dark:bg-black"></div>
   }
 
   return (

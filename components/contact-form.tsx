@@ -1,10 +1,12 @@
 "use client"
 
 import type React from "react"
+
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MapPin, Send, Check, AlertCircle } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function ContactForm() {
   // Clé d'accès Web3Forms fournie
@@ -65,144 +67,177 @@ export function ContactForm() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <Card className="bg-transparent border-0 overflow-hidden relative shadow-xl">
-        <div className="h-2 w-full bg-gradient-to-r from-[#39FF14] to-[#66FF33] relative"></div>
-        <CardContent className="p-6 relative bg-[#121212]/80 backdrop-blur-sm">
-          {isSubmitted ? (
-            <div className="flex flex-col items-center justify-center py-6 text-center">
-              <div className="w-16 h-16 bg-[#39FF14]/10 rounded-full flex items-center justify-center mb-4">
-                <Check className="h-8 w-8 text-[#39FF14]" />
-              </div>
-              <h3 className="text-xl font-bold text-[#39FF14] mb-2 text-glow">Message Sent!</h3>
-              <p className="text-gray-300 mb-6">Thank you for reaching out. We'll get back to you soon.</p>
-              <Button onClick={() => setIsSubmitted(false)} className="nft-button-primary">
-                Send Another Message
-              </Button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-1">
-                <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text hero-gradient text-glow">
-                  Get in Touch with Us
-                </h3>
-                <p className="text-lg mb-6 text-white">Questions? Reach out.</p>
+    <section id="contact" className="section-padding relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/5 to-background"></div>
 
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-start">
-                    <Mail className="h-6 w-6 text-[#39FF14] mr-3 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-white">Email Us</h4>
-                      <p className="text-gray-300">invest.m21@proton.me</p>
+      <div className="container-custom relative z-10">
+        <motion.div
+          className="max-w-3xl mx-auto text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">Contact Us</h2>
+          <p className="text-lg">Have questions or want to learn more about our mission? We'd love to hear from you.</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto"
+        >
+          <Card className="border-gradient glass overflow-hidden">
+            <CardContent className="p-8">
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+                    <Check className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gradient mb-4">Message Sent!</h3>
+                  <p className="text-foreground/80 mb-8 max-w-md">
+                    Thank you for reaching out. We'll get back to you soon. Your message helps us improve our service
+                    and mission.
+                  </p>
+                  <Button
+                    onClick={() => setIsSubmitted(false)}
+                    className="bg-gradient hover:opacity-90 transition-opacity"
+                  >
+                    Send Another Message
+                  </Button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="md:col-span-1">
+                    <h3 className="text-xl font-bold mb-4 text-gradient">Get in Touch</h3>
+                    <p className="text-foreground/80 mb-8">
+                      Have questions about our NFTs or mission? We're here to help you make a difference.
+                    </p>
+
+                    <div className="space-y-6 mb-6">
+                      <div className="flex items-start">
+                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4">
+                          <Mail className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-foreground">Email Us</h4>
+                          <p className="text-muted-foreground">invest.m21@proton.me</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start">
+                        <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mr-4">
+                          <MapPin className="h-5 w-5 text-secondary" />
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-foreground">Location</h4>
+                          <p className="text-muted-foreground">Geneva - Switzerland</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start">
-                    <MapPin className="h-6 w-6 text-[#39FF14] mr-3 mt-1" />
-                    <div>
-                      <h4 className="font-semibold text-white">Location</h4>
-                      <p className="text-gray-300">Geneva - Switzerland</p>
-                    </div>
+                  <div className="md:col-span-2">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+                      <input type="hidden" name="redirect" value="false" />
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
+                            Your Name
+                          </label>
+                          <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full p-3 bg-background border border-border rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 text-foreground"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
+                            Your Email
+                          </label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full p-3 bg-background border border-border rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 text-foreground"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="subject" className="block text-sm font-medium mb-2 text-foreground">
+                          Subject
+                        </label>
+                        <input
+                          id="subject"
+                          name="subject"
+                          type="text"
+                          required
+                          value={formData.subject}
+                          onChange={handleChange}
+                          className="w-full p-3 bg-background border border-border rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 text-foreground"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
+                          Message
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={4}
+                          required
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full p-3 bg-background border border-border rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 text-foreground resize-none"
+                        />
+                      </div>
+
+                      {error && (
+                        <div className="bg-red-500/10 border border-red-500/30 rounded-md p-4 flex items-start">
+                          <AlertCircle className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
+                          <p className="text-red-500 text-sm">{error}</p>
+                        </div>
+                      )}
+
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-gradient hover:opacity-90 transition-opacity"
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center">
+                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                            Sending...
+                          </span>
+                        ) : (
+                          <span className="flex items-center">
+                            <Send className="mr-2 h-4 w-4" />
+                            Send Message
+                          </span>
+                        )}
+                      </Button>
+                    </form>
                   </div>
                 </div>
-              </div>
-
-              <div className="md:col-span-2">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Champ caché pour la clé d'accès Web3Forms */}
-                  <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
-
-                  {/* Champ caché pour la redirection après soumission (optionnel) */}
-                  <input type="hidden" name="redirect" value="false" />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-1 text-white">
-                        Your Name
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-1 text-white">
-                        Your Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-1 text-white">
-                      Subject
-                    </label>
-                    <input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1 text-white">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={3}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full p-2 bg-black border border-[#39FF14]/20 rounded-md focus:border-[#39FF14]/50 focus:outline-none focus:ring-1 focus:ring-[#39FF14]/30 text-white resize-none"
-                    />
-                  </div>
-
-                  {error && (
-                    <div className="bg-red-900/20 border border-red-500/50 rounded-md p-3 flex items-start">
-                      <AlertCircle className="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <p className="text-red-200 text-sm">{error}</p>
-                    </div>
-                  )}
-
-                  <Button type="submit" disabled={isSubmitting} className="w-full nft-button-primary">
-                    {isSubmitting ? (
-                      <span className="flex items-center">
-                        <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="mr-2 h-4 w-4" />
-                        Send Message
-                      </span>
-                    )}
-                  </Button>
-                </form>
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+              )}
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </section>
   )
 }

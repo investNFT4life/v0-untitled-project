@@ -3,75 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
+  --background: 260 50% 98%;
+  --foreground: 260 50% 10%;
 
-  /* Nouvelle palette vert néon éclatant */
-  --accent-light: 110 100% 70%; /* Vert clair #66FF33 */
-  --accent: 110 100% 60%; /* Vert néon vif #39FF14 */
-  --accent-dark: 110 100% 40%; /* Vert foncé #00CC00 */
+  --primary: 260 80% 50%;
+  --primary-foreground: 260 50% 98%;
 
-  --card-bg: 0 0% 7%; /* Noir légèrement plus clair #121212 */
-  --card-border: 110 100% 60%; /* Bordure verte */
+  --secondary: 230 80% 60%;
+  --secondary-foreground: 260 50% 98%;
+
+  --accent: 290 80% 60%;
+  --accent-foreground: 260 50% 98%;
+
+  --muted: 260 20% 90%;
+  --muted-foreground: 260 30% 40%;
+
+  --card: 260 50% 100%;
+  --card-foreground: 260 50% 10%;
+
+  --border: 260 30% 90%;
+  --input: 260 30% 90%;
+
+  --ring: 260 80% 50%;
 }
 
-body {
-  background-color: black;
-  color: white;
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
+.dark {
+  --background: 260 50% 5%;
+  --foreground: 260 20% 98%;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  --primary: 260 80% 50%;
+  --primary-foreground: 260 50% 98%;
 
-  .animate-text {
-    background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
-  }
-}
+  --secondary: 230 80% 60%;
+  --secondary-foreground: 260 50% 98%;
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+  --accent: 290 80% 60%;
+  --accent-foreground: 260 50% 98%;
 
-@layer base {
-  :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 110 100% 60%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 110 100% 60%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 110 100% 60%;
-    --chart-1: 110 100% 60%;
-    --chart-2: 110 100% 70%;
-    --chart-3: 110 100% 40%;
-    --chart-4: 110 90% 65%;
-    --chart-5: 110 80% 55%;
-    --radius: 0.5rem;
-  }
+  --muted: 260 20% 15%;
+  --muted-foreground: 260 30% 70%;
+
+  --card: 260 50% 8%;
+  --card-foreground: 260 20% 98%;
+
+  --border: 260 30% 20%;
+  --input: 260 30% 20%;
+
+  --ring: 260 80% 50%;
 }
 
 @layer base {
@@ -83,105 +61,96 @@ body {
   }
 }
 
-/* Classes personnalisées pour les NFTs */
-.nft-text-accent {
-  color: #39ff14;
-}
-
-.nft-gradient {
-  background: linear-gradient(to right, #39ff14, #66ff33);
-}
-
-.hero-gradient {
-  background: linear-gradient(to right, #39ff14, #66ff33, #00cc00);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.section-gradient {
-  background: linear-gradient(to bottom, black, #121212);
-}
-
-.card-bg {
-  background-color: rgba(18, 18, 18, 0.8);
-  backdrop-filter: blur(8px);
-}
-
-.metallic-effect {
-  background: linear-gradient(to bottom, #66ff33, #39ff14, #00cc00);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.nft-button-primary {
-  background-color: #39ff14;
-  color: black;
-  font-weight: 500;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
-  transition: all 0.3s ease;
-}
-
-.nft-button-primary:hover {
-  background-color: #66ff33;
-  box-shadow: 0 0 20px rgba(57, 255, 20, 0.7), 0 0 30px rgba(57, 255, 20, 0.4);
-  transform: translateY(-2px);
-}
-
-/* Effet de lueur pour les éléments verts */
-.glow-effect {
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
-  animation: pulse 2s infinite;
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+    opacity: 0.6;
+    transform: scale(0.98);
   }
   50% {
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.9), 0 0 40px rgba(57, 255, 20, 0.4);
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+    opacity: 0.6;
+    transform: scale(0.98);
   }
 }
 
-/* Effet de texte lumineux */
-.text-glow {
-  text-shadow: 0 0 5px rgba(57, 255, 20, 0.7), 0 0 10px rgba(57, 255, 20, 0.5);
-}
-
-/* Classe pour améliorer l'espacement des sections */
-.section-spacing {
-  margin-top: 3.4%;
-  margin-bottom: 3.4%;
-}
-
-/* Amélioration de l'espacement des conteneurs */
-.container {
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 7%;
-    padding-right: 7%;
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
-/* Amélioration de l'espacement des textes */
-p {
-  line-height: 1.8;
-  margin-bottom: 1.2em;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 0.8em;
-  line-height: 1.3;
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Custom Utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+}
+
+.bg-gradient {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent;
+}
+
+.border-gradient {
+  position: relative;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass {
+  @apply bg-white/10 dark:bg-black/20 backdrop-blur-lg;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-custom {
+  @apply container mx-auto px-4 md:px-8;
 }
